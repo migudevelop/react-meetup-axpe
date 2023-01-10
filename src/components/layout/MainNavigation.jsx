@@ -1,11 +1,28 @@
 import ROUTES_LINKS from '../../router/routesLinks'
 import { NavLink } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 import classes from './MainNavigation.module.css'
+import useHiddenHeader from 'hooks/layout/useHiddenHeader'
+
+const VARIANTS = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: -25 }
+}
+
+const TRANSITION = { ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }
 
 export default function MainNavigation() {
+  const { hidden } = useHiddenHeader()
+
   return (
-    <header className={classes.header} data-test="navigation-header">
+    <motion.header
+      variants={VARIANTS}
+      animate={hidden ? 'hidden' : 'visible'}
+      transition={TRANSITION}
+      className={classes.header}
+      data-test="navigation-header"
+    >
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
@@ -21,6 +38,6 @@ export default function MainNavigation() {
           </li>
         </ul>
       </nav>
-    </header>
+    </motion.header>
   )
 }
