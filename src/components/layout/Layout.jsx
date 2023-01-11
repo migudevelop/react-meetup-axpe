@@ -1,8 +1,9 @@
+import { memo } from 'react'
 import MainNavigation from './MainNavigation.jsx'
 import classes from './Layout.module.css'
 import { Outlet } from 'react-router-dom'
 
-export default function Layout() {
+export default memo(function Layout() {
   return (
     <div data-test="app">
       <MainNavigation />
@@ -13,4 +14,4 @@ export default function Layout() {
       </div>
     </div>
   )
-}
+})

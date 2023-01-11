@@ -1,9 +1,10 @@
-import Card from "../ui/Card";
-import classes from "./NewMeetupForm.module.css";
+import { memo } from 'react'
+import Card from '../ui/Card'
+import classes from './NewMeetupForm.module.css'
 
-export default function NewMeetupForm() {
+export default memo(function NewMeetupForm() {
   function submitHandler(event) {
-    event.preventDefault();
+    event.preventDefault()
   }
 
   return (
@@ -30,5 +31,5 @@ export default function NewMeetupForm() {
         </div>
       </form>
     </Card>
-  );
-}
+  )
+})
