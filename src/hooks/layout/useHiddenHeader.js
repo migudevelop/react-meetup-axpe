@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useViewportScroll } from 'framer-motion'
+import { useScroll } from 'framer-motion'
 
 export default function useHiddenHeader() {
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
   const [hidden, setHidden] = useState(false)
 
   const update = () => {
