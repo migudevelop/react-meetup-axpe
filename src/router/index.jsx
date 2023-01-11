@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { FullPageLoader } from 'components/ui'
 import ROUTES_LINKS from './routesLinks.js'
 const MainLayout = lazy(() => import('components/layout/MainLayout'))
 const AllMeetupsPage = lazy(() => import('pages/AllMeetupsPage'))
@@ -8,7 +9,7 @@ const NewMeetup = lazy(() => import('pages/NewMeetup'))
 
 const Router = () => {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<FullPageLoader />}>
       <Routes>
         <Route path={ROUTES_LINKS.HOME} element={<MainLayout />}>
           <Route index path={ROUTES_LINKS.HOME} element={<AllMeetupsPage />} />

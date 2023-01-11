@@ -1,13 +1,14 @@
 import { memo } from 'react'
 import { MeetupItem, MeetupList } from 'components/meetups'
-import { useFetch } from 'util-hooks/useFetch'
+import { FullPageLoader } from 'components/ui'
+import { useFetch } from 'hooks'
 
 export default memo(function AllMeetupsPage() {
-  const { data } = useFetch({
+  const { data, isLoading } = useFetch({
     url: '/data.json'
   })
 
-  if (!data) return <p>Loading...</p>
+  if (isLoading) return <FullPageLoader />
 
   return (
     <section>
