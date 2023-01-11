@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Badge } from 'components/ui'
 import classes from './MainNavigation.module.css'
 import { useHiddenHeader } from 'hooks'
+import { useFavorites } from 'providers/FavoritesProvider'
 
 const VARIANTS = {
   visible: { opacity: 1, y: 0 },
@@ -15,6 +16,7 @@ const TRANSITION = { ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }
 
 export default memo(function MainNavigation() {
   const { hidden } = useHiddenHeader()
+  const { favorites } = useFavorites()
 
   return (
     <motion.header
@@ -37,7 +39,7 @@ export default memo(function MainNavigation() {
           <li>
             <NavLink to={ROUTES_LINKS.FAVOURITES}>
               My Favorites
-              <Badge />
+              <Badge text={favorites?.length} />
             </NavLink>
           </li>
         </ul>
