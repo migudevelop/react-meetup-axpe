@@ -1,17 +1,16 @@
 import { memo } from 'react'
-import MeetupItem from '../components/meetups/MeetupItem'
-import classes from './../components/meetups/MeetupList.module.css'
+import { MeetupItem, MeetupList } from 'components/meetups'
 
 export default memo(function AllMeetupsPage() {
   return (
     <section>
       <h1>All Meetups</h1>
-      <ul className={classes.list}>
+      <MeetupList>
         <MeetupItem />
         <MeetupItem />
         <MeetupItem />
         <MeetupItem />
-      </ul>
+      </MeetupList>
     </section>
   )
 })

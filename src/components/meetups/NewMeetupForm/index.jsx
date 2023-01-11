@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import Card from '../ui/Card'
+import { ActionButton, Card } from 'components/ui'
 import classes from './NewMeetupForm.module.css'
 
 export default memo(function NewMeetupForm() {
@@ -26,9 +26,7 @@ export default memo(function NewMeetupForm() {
           <label htmlFor="description">Description</label>
           <textarea id="description" required rows="5"></textarea>
         </div>
-        <div className={classes.actions}>
-          <button>Add Meetup</button>
-        </div>
+        <ActionButton className={classes.actions}>Add Meetup</ActionButton>
       </form>
     </Card>
   )

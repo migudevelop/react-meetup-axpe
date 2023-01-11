@@ -1,10 +1,10 @@
 import { memo } from 'react'
-import ROUTES_LINKS from '../../router/routesLinks'
+import ROUTES_LINKS from 'router/routesLinks'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import Badge from './Badge'
+import { Badge } from 'components/ui'
 import classes from './MainNavigation.module.css'
-import useHiddenHeader from 'hooks/layout/useHiddenHeader'
+import { useHiddenHeader } from 'hooks'
 
 const VARIANTS = {
   visible: { opacity: 1, y: 0 },

@@ -1,7 +1,8 @@
 import { memo } from 'react'
-import { useFetch } from '../../util-hooks/useFetch'
+import { useFetch } from 'util-hooks/useFetch'
+import { ActionButton } from 'components/ui'
 import classes from './MeetupItem.module.css'
-import Card from '../ui/Card'
+import { Card } from 'components/ui'
 
 export default memo(function MeetupItem() {
   const { data } = useFetch({
@@ -22,9 +23,7 @@ export default memo(function MeetupItem() {
           <address>{item.address}</address>
           <p>{item.description}</p>
         </div>
-        <div className={classes.actions}>
-          <button>Add to favorites</button>
-        </div>
+        <ActionButton>Add to favorites</ActionButton>
       </Card>
     </li>
   )
