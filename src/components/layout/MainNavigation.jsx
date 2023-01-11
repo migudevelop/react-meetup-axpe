@@ -1,7 +1,8 @@
+import { memo } from 'react'
 import ROUTES_LINKS from '../../router/routesLinks'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-
+import Badge from './Badge'
 import classes from './MainNavigation.module.css'
 import useHiddenHeader from 'hooks/layout/useHiddenHeader'
 
@@ -12,7 +13,7 @@ const VARIANTS = {
 
 const TRANSITION = { ease: [0.1, 0.25, 0.3, 1], duration: 0.6 }
 
-export default function MainNavigation() {
+export default memo(function MainNavigation() {
   const { hidden } = useHiddenHeader()
 
   return (
@@ -34,10 +35,13 @@ export default function MainNavigation() {
             <NavLink to={ROUTES_LINKS.NEW_MEETUP}>Add New Meetup</NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES_LINKS.FAVOURITES}>My Favorites</NavLink>
+            <NavLink to={ROUTES_LINKS.FAVOURITES}>
+              My Favorites
+              <Badge />
+            </NavLink>
           </li>
         </ul>
       </nav>
     </motion.header>
   )
-}
+})
