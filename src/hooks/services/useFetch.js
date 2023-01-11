@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { API_URLS } from 'utils'
 
 export const useFetch = ({ url }) => {
   const [isLoading, setIsLoading] = useState(false)
@@ -6,7 +7,7 @@ export const useFetch = ({ url }) => {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch(url)
+    fetch(`${API_URLS.LOCA_URL}${url}`)
       .then((response) => response.json())
       .then((json) => {
         setData(json)
