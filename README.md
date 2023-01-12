@@ -1,40 +1,24 @@
-# Scripts del proyecto
+# Scripts principales del proyecto
 
 ```
-# Clonar este repositorio
-git clone https://github.com/migudevelop/react-meetup-axpe.git
-
-# Instalar las dependencias (npm)
-npm i
-
-# Levantar el proyecto (se necesitará levantar el servidor en otra terminal)
-npm run start
-
 # Levantar el proyecto en modo desarrollo (se levanta el servidor con los mocks)
 npm run start:dev
 
-# Levantar el servidor
+# Levantar el servidor y la aplicación en terminales separas.
 npm run server
+npm run start
 
-# Lanzar los tests
+# Lanzar los tests unitarios
 npm run test
 
-# Lanzar los tests y mantenerlos en escucha
-npm run test:watch
+# Lanzar los tests e2e con cypress
+# (se generaran videos de los tests en la carpeta cypress/videos)
+npm run test:e2e
 
-# Lanzar el linter para comprobar y corregir errores
-npm run lint
 
-# Lanzar prettier para corregir estilos y poner estilos definidos
-npm run prettify
-
-# Lanzar prettier para comprobar que estén los estilos como los hemos definido
-npm run prettify
-
-# Instalar Husky
-npm run prettify
 ```
 
+Se han añadido más scripts en el package.json para ayudarnos en el desarrollo.
 # Prueba teorica
 
 El principal problema que detecto es que eso daría error al ejecutarse, esto pasa por que está intentando acceder a service, el cual le has pasado como primer parámetro al forEach y este no está definido en la función que le pasas como segundo parámetro. La forma correcta de utilizar forEach es pasándole una función, para que esto funcione se solucionaría de la siguiente manera:
