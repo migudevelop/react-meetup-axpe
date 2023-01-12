@@ -30,14 +30,18 @@ export default memo(function MainNavigation() {
       <nav>
         <ul>
           <li>
-            <NavLink to={ROUTES_LINKS.ALL_MEETUPS_PAGE}>All Meetups</NavLink>
+            <NavLink className="nav-links" to={ROUTES_LINKS.ALL_MEETUPS_PAGE}>
+              All Meetups
+            </NavLink>
           </li>
 
           <li>
-            <NavLink to={ROUTES_LINKS.NEW_MEETUP}>Add New Meetup</NavLink>
+            <NavLink className="nav-links" to={ROUTES_LINKS.NEW_MEETUP}>
+              Add New Meetup
+            </NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES_LINKS.FAVOURITES}>
+            <NavLink className="nav-links" to={ROUTES_LINKS.FAVORITES}>
               My Favorites
               <Badge text={favorites?.length} />
             </NavLink>

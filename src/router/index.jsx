@@ -17,7 +17,7 @@ const Router = () => {
             path={ROUTES_LINKS.ALL_MEETUPS_PAGE}
             element={<AllMeetupsPage />}
           />
-          <Route path={ROUTES_LINKS.FAVOURITES} element={<Favorites />} />
+          <Route path={ROUTES_LINKS.FAVORITES} element={<Favorites />} />
           <Route path={ROUTES_LINKS.NEW_MEETUP} element={<NewMeetup />} />
         </Route>
       </Routes>

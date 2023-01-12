@@ -1,7 +1,7 @@
 const ROUTES_LINKS = {
   HOME: '/',
   ALL_MEETUPS_PAGE: 'all-meetups',
-  FAVOURITES: 'favourites',
+  FAVORITES: 'favorites',
   NEW_MEETUP: 'new-meetup'
 }
 
