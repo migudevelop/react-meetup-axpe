@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import ROUTES_LINKS from 'router/routesLinks'
+import { ROUTES_LINKS } from 'routes'
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Badge } from 'components/ui'
