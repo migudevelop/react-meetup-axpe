@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 import { favoritesUtils } from 'utils'
 
 export default function useFavoritesState() {
-  const [favorites, setFavorites] = useState(
+  const [favorites, setFavorites] = useState(() =>
     favoritesUtils.getLocalStorageFavorites()
   )
 

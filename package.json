@@ -17,7 +17,7 @@
     "start": "react-scripts start",
     "start:dev": "concurrently \"npm run server\" \"npm run start\"",
     "build": "react-scripts build",
-    "server": "npx json-server --watch data.json --port 3005",
+    "server": "npx json-server --watch ./mocks/data.json --port 3005",
     "test": "react-scripts test --watchAll",
     "test:watch": "react-scripts test --watch",
     "test:coverage": "react-scripts test --coverage",
@@ -46,6 +46,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "node": ">=16.15.1 <17.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.4.1",
