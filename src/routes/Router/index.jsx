@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { FullPageLoader } from 'components/ui'
-import ROUTES_LINKS from './routesLinks.js'
+import ROUTES_LINKS from '../routesLinks.js'
 const MainLayout = lazy(() => import('components/layout/MainLayout'))
 const AllMeetupsPage = lazy(() => import('pages/AllMeetupsPage'))
 const Favorites = lazy(() => import('pages/Favorites'))

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen, waitFor } from '@testing-library/react'
-import App from 'App'
+import App from './App'
 
 test('should be render the initial page', async () => {
   render(<App />)

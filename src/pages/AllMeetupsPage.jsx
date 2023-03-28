@@ -1,13 +1,10 @@
 import { memo } from 'react'
 import { MeetupItem, MeetupList } from 'components/meetups'
 import { FullPageLoader } from 'components/ui'
-import { useFetch } from 'hooks'
-import { API_URLS } from 'utils'
+import { meetupsServices } from 'services'
 
 export default memo(function AllMeetupsPage() {
-  const { data, isLoading } = useFetch({
-    url: API_URLS.MEETUPS
-  })
+  const { data, isLoading } = meetupsServices.getMeetups()
 
   if (isLoading) return <FullPageLoader />
 
