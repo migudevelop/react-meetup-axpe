@@ -1,5 +1,7 @@
 # Scripts principales del proyecto
 
+Se necesita tener instalado [Git](https://git-scm.com/) y [Node.js](https://nodejs.org/en/download/) (en la vesión 16.5.1)
+
 ```
 # Levantar el proyecto en modo desarrollo (se levanta el servidor con los mocks)
 npm run start:dev
@@ -15,18 +17,19 @@ npm run test
 # (se generaran videos de los tests en la carpeta cypress/videos)
 npm run test:e2e
 
-
 ```
 
 Se han añadido más scripts en el package.json para ayudarnos en el desarrollo.
+
 # Prueba teorica
 
-El principal problema que detecto es que eso daría error al ejecutarse, esto pasa por que está intentando acceder a service, el cual le has pasado como primer parámetro al forEach y este no está definido en la función que le pasas como segundo parámetro. La forma correcta de utilizar forEach es pasándole una función, para que esto funcione se solucionaría de la siguiente manera:
+El principal problema que detecto _(antes de centrarme en el de escalabilidad)_ es que eso daría error al ejecutarse, esto pasa por que está intentando acceder a service, el cual le has pasado como primer parámetro al forEach y este no está definido en la función que le pasas como segundo parámetro. La forma correcta de utilizar forEach es pasándole una función, para que esto funcione se solucionaría de la siguiente manera:
 
 ```
 services.forEach((service, index) => {
     // código
 }
+
 ```
 
 De esta forma podemos acceder tanto a service como a index. Aunque index no haría falta ya que no lo estamos utilizando.
@@ -53,7 +56,9 @@ class Service {
       // devolviendo el preció que le corresponda.
    }
 }
+
 ```
+
 ```
 class StreamingService extends Service{
     constructor(multimediaContent){
@@ -64,7 +69,9 @@ class StreamingService extends Service{
         return super.getMultimediaContent().getSteamingPrice()
     }
 }
+
 ```
+
 ```
 class DownloadService extends Service{
     constructor(multimediaContent){
@@ -75,6 +82,7 @@ class DownloadService extends Service{
         return super.getMultimediaContent().getDownloadPrice()
     }
 }
+
 ```
 
 También haría que la clase MultimediaContent tuviera los métodos getSteamingPrice, getDownloadPrice y fuese una clase común para los contenidos. De esta manera cada contenido podría adaptar más fácilmente el preció sin modificar las demás clases.
@@ -95,7 +103,9 @@ class MultimediaContent{
         return this.downloadPrice;
     }
 }
+
 ```
+
 ```
 class PremiumContent extends MultimediaContent {
     /**
@@ -109,6 +119,7 @@ class PremiumContent extends MultimediaContent {
         return super.getDownloadPrice() + 50
     }
 }
+
 ```
 
 De esta manera el usuario simplemente tendría que utilizar el método getPrice para obtener el precio.
@@ -123,6 +134,5 @@ class RegisteredUser {
       return this.services.map(service => service.getPrice()).reduce((a,b) => a + b, 0);
     }
   }
+
 ```
-
-
